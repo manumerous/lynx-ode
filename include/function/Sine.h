@@ -1,9 +1,9 @@
 #include <cmath>
 
-#include "include/function/AbstractFunction.h"
+#include "include/function/FunctionBase.h"
 
 namespace numerical_integration {
-class Sine : public AbstractFunction {
+class Sine : public FunctionBase {
  public:
   Sine();
 
