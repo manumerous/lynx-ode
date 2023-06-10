@@ -1,7 +1,7 @@
 
 namespace numerical_integration {
 
-class Function {
+class AbstractFunction {
  public:
   Function();
 
