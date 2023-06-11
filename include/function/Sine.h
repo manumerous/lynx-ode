@@ -6,7 +6,7 @@
 
 namespace turbo_lynx_ode {
 
-class Sine : public FunctionBase {
+class Sine : public SystemFlowMapBase {
  public:
   Sine(){};
 

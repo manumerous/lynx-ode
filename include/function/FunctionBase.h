@@ -2,9 +2,9 @@
 
 namespace turbo_lynx_ode {
 
-class FunctionBase {
+class SystemFlowMapBase {
  public:
-  virtual double evaluate(double x) const = 0;
+  virtual double getLinearApproximation(double x) const = 0;
 };
 
 }  // namespace turbo_lynx_ode
