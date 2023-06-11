@@ -2,7 +2,7 @@
 
 #include "common/Types.h"
 #include "matplotlibcpp.h"
-#include "ode_solver/EulerForwardSolver.h"
+#include "ode_integrator/EulerForwardIntegrator.h"
 #include "system_dynamics/MassSpringDamperSystem.h"
 
 namespace plt = matplotlibcpp;
@@ -10,7 +10,7 @@ using namespace lynx_ode;
 
 int main() {
   MassSpringDamperSystem system = MassSpringDamperSystem(2.0, 0.2);
-  EulerForwardSolver forwardEulerIntegrator = EulerForwardSolver();
+  EulerForwardIntegrator forwardEulerIntegrator = EulerForwardIntegrator();
   vector_t initialState(2);
   initialState << 1.0, 0.0;
 

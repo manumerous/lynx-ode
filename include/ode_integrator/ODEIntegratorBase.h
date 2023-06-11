@@ -5,7 +5,7 @@
 
 namespace lynx_ode {
 
-class ODESolverBase {
+class ODEIntegratorBase {
  public:
   virtual vector_array_t integrate(const SystemFlowMapBase* functionPtr, const vector_t& initialState, size_t n_steps, double delta_t) = 0;
 };

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "ode_solver/ODESolverBase.h"
+#include "ode_integrator/ODEIntegratorBase.h"
 
 namespace lynx_ode {
 
-class EulerForwardSolver : public ODESolverBase {
+class EulerForwardIntegrator : public ODEIntegratorBase {
  public:
-  EulerForwardSolver(){};
+  EulerForwardIntegrator(){};
 
   vector_array_t integrate(const SystemFlowMapBase* functionPtr, const vector_t& initialState, size_t n_steps, double delta_t) override;
 };

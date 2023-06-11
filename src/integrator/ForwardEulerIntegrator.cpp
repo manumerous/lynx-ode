@@ -1,9 +1,9 @@
-#include "ode_solver/EulerForwardSolver.h"
+#include "ode_integrator/EulerForwardIntegrator.h"
 
 namespace lynx_ode {
 
-vector_array_t EulerForwardSolver::integrate(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, size_t n_steps,
-                                             scalar_t delta_t) {
+vector_array_t EulerForwardIntegrator::integrate(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, size_t n_steps,
+                                                 scalar_t delta_t) {
   vector_array_t stateTrajectory;
   stateTrajectory.reserve(n_steps + 1);
   stateTrajectory.emplace_back(initialState);
