@@ -6,9 +6,9 @@
 
 namespace lynx_ode {
 
-class SpringDamperSystem : public SystemFlowMapBase {
+class MassSpringDamperSystem : public SystemFlowMapBase {
  public:
-  SpringDamperSystem(scalar_t natuaralFrequency, scalar_t dampingRatio) {
+  MassSpringDamperSystem(scalar_t natuaralFrequency, scalar_t dampingRatio) {
     A << 0.0, 1.0, -natuaralFrequency * natuaralFrequency, -2 * natuaralFrequency * dampingRatio;
   };
 
