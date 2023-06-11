@@ -4,7 +4,7 @@
 
 #include "system_dynamics/SystemFlowMapBase.h"
 
-namespace turbo_lynx_ode {
+namespace lynx_ode {
 
 class Sine : public SystemFlowMapBase {
  public:
@@ -17,4 +17,4 @@ class Sine : public SystemFlowMapBase {
   };
 };
 
-}  // namespace turbo_lynx_ode
+}  // namespace lynx_ode

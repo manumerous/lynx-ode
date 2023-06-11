@@ -7,7 +7,7 @@
 #include <eigen3/Eigen/StdVector>
 #include <vector>
 
-namespace turbo_lynx_ode {
+namespace lynx_ode {
 
 /** Scalar type. */
 using scalar_t = double;
@@ -29,4 +29,4 @@ using eigen_scalar_t = Eigen::Matrix<scalar_t, 1, 1>;
 /** Eigen scalar trajectory type. */
 using eigen_scalar_array_t = std::vector<eigen_scalar_t>;
 
-}  // namespace turbo_lynx_ode
+}  // namespace lynx_ode

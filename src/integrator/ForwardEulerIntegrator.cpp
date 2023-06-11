@@ -1,6 +1,6 @@
 #include "ode_solver/EulerForwardSolver.h"
 
-namespace turbo_lynx_ode {
+namespace lynx_ode {
 
 vector_array_t EulerForwardSolver::integrate(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, size_t n_steps,
                                              scalar_t delta_t) {
@@ -19,4 +19,4 @@ vector_array_t EulerForwardSolver::integrate(const SystemFlowMapBase* flowMapPtr
   return stateTrajectory;
 }
 
-}  // namespace turbo_lynx_ode
+}  // namespace lynx_ode
