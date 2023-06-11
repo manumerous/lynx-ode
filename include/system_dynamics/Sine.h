@@ -10,7 +10,11 @@ class Sine : public SystemFlowMapBase {
  public:
   Sine(){};
 
-  double evaluate(double x) const override { return std::sin(x); };
+  matrix_t getLinearApproximation(const vector_t& state) const override {
+    matrix_t linearApproximation(1, 1);
+    linearApproximation << std::sin(state[0]);
+    return linearApproximation;
+  };
 };
 
 }  // namespace turbo_lynx_ode

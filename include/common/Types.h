@@ -1,10 +1,10 @@
 
 #pragma once
 
-#include <Eigen/Dense>
-#include <Eigen/StdVector>
 #include <array>
 #include <cstddef>
+#include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/StdVector>
 #include <vector>
 
 namespace turbo_lynx_ode {
