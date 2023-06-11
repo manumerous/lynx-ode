@@ -1,7 +1,7 @@
 
 #include "integrator/ForwardEulerIntegrator.h"
 
-namespace numerical_integration {
+namespace turbo_lynx_ode {
 
 std::vector<double> ForwardEulerIntegrator::integrate(const FunctionBase* functionPtr, double initialValue, size_t nSteps, double delta_t) {
   std::vector<double> stateTrajectory;
@@ -16,4 +16,4 @@ std::vector<double> ForwardEulerIntegrator::integrate(const FunctionBase* functi
   return stateTrajectory;
 }
 
-}  // namespace numerical_integration
+}  // namespace turbo_lynx_ode

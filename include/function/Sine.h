@@ -4,7 +4,7 @@
 
 #include "function/FunctionBase.h"
 
-namespace numerical_integration {
+namespace turbo_lynx_ode {
 
 class Sine : public FunctionBase {
  public:
@@ -13,4 +13,4 @@ class Sine : public FunctionBase {
   double evaluate(double x) const override { return std::sin(x); };
 };
 
-}  // namespace numerical_integration
+}  // namespace turbo_lynx_ode

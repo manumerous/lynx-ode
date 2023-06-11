@@ -3,8 +3,8 @@
 #include <iostream>
 
 int main() {
-  numerical_integration::Sine sine = numerical_integration::Sine();
-  numerical_integration::ForwardEulerIntegrator forwardEulerIntegrator = numerical_integration::ForwardEulerIntegrator();
+  turbo_lynx_ode::Sine sine = turbo_lynx_ode::Sine();
+  turbo_lynx_ode::ForwardEulerIntegrator forwardEulerIntegrator = turbo_lynx_ode::ForwardEulerIntegrator();
   auto integrationTrajectory = forwardEulerIntegrator.integrate(&sine, 1, 100, 0.1);
   for (double& point : integrationTrajectory) {
     std::cout << point << std::endl;

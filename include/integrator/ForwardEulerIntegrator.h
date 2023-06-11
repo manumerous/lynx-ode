@@ -2,7 +2,7 @@
 
 #include "integrator/IntegratorBase.h"
 
-namespace numerical_integration {
+namespace turbo_lynx_ode {
 
 class ForwardEulerIntegrator : public IntegratorBase {
  public:
@@ -11,4 +11,4 @@ class ForwardEulerIntegrator : public IntegratorBase {
   std::vector<double> integrate(const FunctionBase* functionPtr, double initialValue, size_t nSteps, double deltaT) override;
 };
 
-}  // namespace numerical_integration
+}  // namespace turbo_lynx_ode
