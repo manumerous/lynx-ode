@@ -12,10 +12,15 @@ find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 include_directories(${EIGEN_INCLUDE_DIR})
 
-# add the executable
-add_executable("${PROJECT_NAME}" ./src/main.cpp) 
+add_library(${PROJECT_NAME}
+  src/integrator/ForwardEulerIntegrator.cpp
+)
 
-target_link_libraries("${PROJECT_NAME}"
+# add the executable
+add_executable(test ./src/main.cpp) 
+
+target_link_libraries(test 
+    ${PROJECT_NAME}
     Eigen3::Eigen
     )
 
