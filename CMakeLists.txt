@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(NumericalIntegration VERSION 1.0)
+project(TurboLynxODE VERSION 1.0)
 
 
 include_directories()
