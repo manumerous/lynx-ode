@@ -1,5 +1,5 @@
-#include <function/Sine.h>
 #include <integrator/ForwardEulerIntegrator.h>
+#include <system_dynamics/Sine.h>
 #include <iostream>
 
 int main() {

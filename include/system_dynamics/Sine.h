@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-#include "function/FunctionBase.h"
+#include "system_dynamics/SystemFlowMapBase.h"
 
 namespace turbo_lynx_ode {
 
