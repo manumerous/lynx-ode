@@ -1,6 +1,8 @@
-#include <ode_solver/EulerForwardSolver.h>
-#include <system_dynamics/MassSpringDamperSystem.h>
 #include <iostream>
+
+#include "matplotlibcpp.h"
+#include "ode_solver/EulerForwardSolver.h"
+#include "system_dynamics/MassSpringDamperSystem.h"
 
 int main() {
   lynx_ode::MassSpringDamperSystem system = lynx_ode::MassSpringDamperSystem(2.0, 0.5);
