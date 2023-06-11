@@ -1,11 +1,10 @@
+#pragma once
 
 namespace numerical_integration {
 
-class AbstractFunction {
+class FunctionBase {
  public:
-  Function();
-
-  virtual double evaluate(double x) = 0;
+  virtual double evaluate(double x) const = 0;
 };
 
 }  // namespace numerical_integration

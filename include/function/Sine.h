@@ -1,13 +1,16 @@
+#pragma once
+
 #include <cmath>
 
-#include "include/function/FunctionBase.h"
+#include "function/FunctionBase.h"
 
 namespace numerical_integration {
+
 class Sine : public FunctionBase {
  public:
-  Sine();
+  Sine(){};
 
-  virtual double evaluate(double x) override { return std::sin(x); };
-}
+  double evaluate(double x) const override { return std::sin(x); };
+};
 
 }  // namespace numerical_integration
