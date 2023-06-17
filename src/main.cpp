@@ -16,10 +16,11 @@ int main() {
   vector_t initialState(2);
   initialState << 1.0, 0.0;
 
-  size_t n_steps = 1000;
-  scalar_t delta_t = 0.01;
-  auto eulerForwardTrajectory = eulerForwardIntegrator.integrate(&system, initialState, n_steps, delta_t);
-  auto eulerBackwardTrajectory = eulerBackwardIntegrator.integrate(&system, initialState, n_steps, delta_t);
+  size_t n_steps = 100;
+  scalar_t integrationHorizon = 5;
+  scalar_t delta_t = integrationHorizon / n_steps;
+  auto eulerForwardTrajectory = eulerForwardIntegrator.integrate(&system, initialState, n_steps, integrationHorizon);
+  auto eulerBackwardTrajectory = eulerBackwardIntegrator.integrate(&system, initialState, n_steps, integrationHorizon);
 
   std::vector<double> x(n_steps + 1), yEulerForward(n_steps + 1), yEulerBackward(n_steps + 1);
 

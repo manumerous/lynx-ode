@@ -6,9 +6,10 @@ namespace lynx_ode {
 
 class EulerBackwardIntegrator : public ODEIntegratorBase {
  public:
-  EulerBackwardIntegrator(){};
+  EulerBackwardIntegrator() : ODEIntegratorBase(){};
 
-  vector_array_t integrate(const SystemFlowMapBase* functionPtr, const vector_t& initialState, size_t n_steps, double delta_t) override;
+ private:
+  vector_t integrationStep(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, scalar_t delta_t) override;
 };
 
 }  // namespace lynx_ode
