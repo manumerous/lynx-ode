@@ -11,8 +11,8 @@ add_subdirectory(./libs/matplotlib-cpp)
 include_directories(${EIGEN_INCLUDE_DIR})
 
 add_library(${PROJECT_NAME}
-  src/integrator/EulerForwardIntegrator.cpp
-  src/integrator/EulerBackwardIntegrator.cpp
+  src/ode_integrator/EulerForwardIntegrator.cpp
+  src/ode_integrator/EulerBackwardIntegrator.cpp
 )
 
 # add the executable
