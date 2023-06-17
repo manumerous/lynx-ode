@@ -25,6 +25,6 @@ build-debug:
 	cmake .. -DCMAKE_BUILD_TYPE=Debug && \
 	make
 
-test:
+run-test:
 	cd ${build_dir} && ./test
 
