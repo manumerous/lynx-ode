@@ -10,7 +10,7 @@ namespace plt = matplotlibcpp;
 using namespace lynx_ode;
 
 int main() {
-  MassSpringDamperSystem system = MassSpringDamperSystem(2.0, 0.2);
+  MassSpringDamperSystem system = MassSpringDamperSystem(2.0, 0.1);
   EulerForwardIntegrator eulerForwardIntegrator = EulerForwardIntegrator();
   EulerBackwardIntegrator eulerBackwardIntegrator = EulerBackwardIntegrator();
   vector_t initialState(2);
