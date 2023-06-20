@@ -4,6 +4,7 @@
 #include "matplotlibcpp.h"
 #include "ode_integrator/EulerBackwardIntegrator.h"
 #include "ode_integrator/EulerForwardIntegrator.h"
+#include "ode_integrator/SecondOrderRungeKutta.h"
 #include "system_dynamics/MassSpringDamperSystem.h"
 
 namespace plt = matplotlibcpp;
@@ -13,6 +14,7 @@ int main() {
   MassSpringDamperSystem system = MassSpringDamperSystem(2.0, 0.1);
   EulerForwardIntegrator eulerForwardIntegrator = EulerForwardIntegrator();
   EulerBackwardIntegrator eulerBackwardIntegrator = EulerBackwardIntegrator();
+  SecondOrderRungeKutta secondOrderRungeKutta = SecondOrderRungeKutta();
   vector_t initialState(2);
   initialState << 1.0, 0.0;
 
@@ -21,21 +23,25 @@ int main() {
   scalar_t delta_t = integrationHorizon / n_steps;
   auto eulerForwardTrajectory = eulerForwardIntegrator.integrate(&system, initialState, n_steps, integrationHorizon);
   auto eulerBackwardTrajectory = eulerBackwardIntegrator.integrate(&system, initialState, n_steps, integrationHorizon);
+  auto rungeKuttaTrajectory = secondOrderRungeKutta.integrate(&system, initialState, n_steps, integrationHorizon);
 
-  std::vector<double> x(n_steps + 1), yEulerForward(n_steps + 1), yEulerBackward(n_steps + 1);
+  std::vector<double> x(n_steps + 1), yEulerForward(n_steps + 1), yEulerBackward(n_steps + 1), ySecondOrderRungeKutta(n_steps + 1);
 
   x.emplace_back(0);
   yEulerForward.emplace_back(initialState[0]);
   yEulerBackward.emplace_back(initialState[0]);
+  ySecondOrderRungeKutta.emplace_back(initialState[0]);
 
   for (int i = 0; i < n_steps; i++) {
     x.emplace_back(i * delta_t);
     yEulerForward.emplace_back(eulerForwardTrajectory[i][0]);
     yEulerBackward.emplace_back(eulerBackwardTrajectory[i][0]);
+    ySecondOrderRungeKutta.emplace_back(rungeKuttaTrajectory[i][0]);
   }
 
   plt::plot(x, yEulerForward);
   plt::plot(x, yEulerBackward);
+  plt::plot(x, ySecondOrderRungeKutta);
   plt::show();
 
   return 0;
