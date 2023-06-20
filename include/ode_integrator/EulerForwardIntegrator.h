@@ -10,6 +10,8 @@ class EulerForwardIntegrator : public ODEIntegratorBase {
 
  private:
   vector_t integrationStep(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, scalar_t delta_t) override;
+
+  vector_t eulerforwardStep(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, scalar_t delta_t);
 };
 
 }  // namespace lynx_ode
