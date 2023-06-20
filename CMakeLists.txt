@@ -14,6 +14,7 @@ add_library(${PROJECT_NAME}
   src/ode_integrator/ODEIntegratorBase.cpp
   src/ode_integrator/EulerForwardIntegrator.cpp
   src/ode_integrator/EulerBackwardIntegrator.cpp
+  src/ode_integrator/SecondOrderRungeKutta.cpp
 )
 
 # add the executable
