@@ -1,4 +1,4 @@
-#include "ode_integrator/SecondOrderRungeKutta.h"
+#include "ode_integrator/FourthOrderRungeKutta.h"
 
 namespace lynx_ode {
 
