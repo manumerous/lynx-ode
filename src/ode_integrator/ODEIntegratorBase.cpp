@@ -2,15 +2,14 @@
 
 namespace lynx_ode {
 
-vector_array_t ODEIntegratorBase::integrate(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, size_t n_steps,
-                                            scalar_t integrationHorizonTime) {
+Trajectory ODEIntegratorBase::integrate(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, size_t n_steps,
+                                        scalar_t integrationHorizonTime) {
+  Trajectory stateTrajectory = Trajectory(n_steps + 1);
+  stateTrajectory.appendValue(0.0, initialState);
   scalar_t delta_t = integrationHorizonTime / n_steps;
-  vector_array_t stateTrajectory;
-  stateTrajectory.reserve(n_steps + 1);
-  stateTrajectory.emplace_back(initialState);
 
-  for (int i = 0; i < n_steps; i++) {
-    stateTrajectory.emplace_back(integrationStep(flowMapPtr, stateTrajectory[i], delta_t));
+  for (int i = 1; i < n_steps + 1; i++) {
+    stateTrajectory.appendValue(i * delta_t, integrationStep(flowMapPtr, stateTrajectory.getValues()[i - 1], delta_t));
   }
 
   return stateTrajectory;
