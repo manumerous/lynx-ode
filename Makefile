@@ -25,6 +25,6 @@ build-debug:
 	cmake .. -DCMAKE_BUILD_TYPE=Debug && \
 	make
 
-run-test:
-	cd ${build_dir} && ./test
+run-example:
+	cd ${build_dir} && ./massSpringDamperSystem
 

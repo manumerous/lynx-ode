@@ -19,9 +19,9 @@ add_library(${PROJECT_NAME}
 )
 
 # add the executable
-add_executable(test ./src/main.cpp) 
+add_executable(massSpringDamperSystem ./examples/massSpringDamperSystem.cpp) 
 
-target_link_libraries(test 
+target_link_libraries(massSpringDamperSystem 
     ${PROJECT_NAME}
     matplotlib_cpp
     Eigen3::Eigen
