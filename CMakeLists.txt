@@ -2,7 +2,13 @@ cmake_minimum_required(VERSION 3.0)
 
 project(TurboLynxODE VERSION 1.0)
 
-include_directories( ./include ./src ./libs/matplotlib-cpp)
+# Set to OFF when you don't need the examples
+set(BUILD_EXAMPLES ON)
+
+include_directories( ./include ./src)
+if(BUILD_EXAMPLES)
+  include_directories(./libs/matplotlib-cpp)
+endif(BUILD_EXAMPLES)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
@@ -18,12 +24,21 @@ add_library(${PROJECT_NAME}
   src/ode_integrator/FourthOrderRungeKutta.cpp
 )
 
-# add the executable
-add_executable(massSpringDamperSystem ./examples/massSpringDamperSystem.cpp) 
+##############
+## Examples ##
+##############
 
-target_link_libraries(massSpringDamperSystem 
-    ${PROJECT_NAME}
-    matplotlib_cpp
-    Eigen3::Eigen
-    )
+if(BUILD_EXAMPLES)
+
+  add_executable(massSpringDamperSystem ./examples/massSpringDamperSystem.cpp) 
+
+  target_link_libraries(massSpringDamperSystem 
+      ${PROJECT_NAME}
+      matplotlib_cpp
+      Eigen3::Eigen
+      )
+      
+endif(BUILD_EXAMPLES)
+
+
 
