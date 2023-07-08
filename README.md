@@ -1,4 +1,6 @@
-# Lynx ODE
+
+![lynx_ode_logo](https://github.com/manumerous/lynx-ode/assets/18735094/d2e58833-0f8e-4f13-a4f7-39ae9577021f)
+
 A minimal library containing different ODE solvers. 
 
 ## Dependencies
