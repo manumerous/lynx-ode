@@ -1,5 +1,4 @@
-
-![lynx_ode_logo](https://github.com/manumerous/lynx-ode/assets/18735094/d2e58833-0f8e-4f13-a4f7-39ae9577021f)
+![lynx_ode_logo](https://github.com/manumerous/lynx-ode/assets/18735094/00059cde-f683-409a-bb5d-1974706efd64)
 
 A minimal c++ library containing efficient implementations of common Ordinary Differentail Equations (ODE) solvers that can be used to simulate dynamical systems. 
 
@@ -19,4 +18,4 @@ To visualize the provided examples you need to initialize the matplotlibcpp subm
 ## Examples
 As an example of how to use the library a simple mass-spring-damper system simulation is included. Run it by using `make run-example`. 
 
-![lynx_ode_examples](https://github.com/manumerous/lynx-ode/assets/18735094/07afa4cc-b82b-4bfd-95d7-42e8a1b944c2)
+![lynx_ode_examples](https://github.com/manumerous/lynx-ode/assets/18735094/5539bd63-cba0-4ed8-adf1-09ebd5366bb3)
