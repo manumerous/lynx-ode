@@ -15,3 +15,8 @@ The only dependency for this library is Eigen 3.3. On a debian based linux syste
 
 #### Optional Dependencies for examples
 To visualize the provided examples you need to initialize the matplotlibcpp submodule using `make update-submodules`. If you decide to build without the examples set `set(BUILD_EXAMPLES OFF)` in CMakeLists.txt. 
+
+## Examples
+As an example of how to use the library a simple mass-spring-damper system simulation is included. Run it by using `make run-example`. 
+
+![lynx_ode_examples](https://github.com/manumerous/lynx-ode/assets/18735094/07afa4cc-b82b-4bfd-95d7-42e8a1b944c2)
