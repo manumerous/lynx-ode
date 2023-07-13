@@ -81,11 +81,17 @@ int main() {
   Trajectory rungeKutta4Trajectory = fourthOrderRungeKutta.integrate(&system, initialState, n_steps / 10, integrationHorizon);
 
   // Plot all trajectories using matplotlibcpp
-  plt::plot(groundTruthTrajectory.getTimeStamps(), groundTruthTrajectory.getSingleStateValues(0));
-  plt::plot(eulerForwardTrajectory.getTimeStamps(), eulerForwardTrajectory.getSingleStateValues(0));
-  plt::plot(eulerBackwardTrajectory.getTimeStamps(), eulerBackwardTrajectory.getSingleStateValues(0));
-  plt::plot(rungeKutta2Trajectory.getTimeStamps(), rungeKutta2Trajectory.getSingleStateValues(0));
-  plt::plot(rungeKutta4Trajectory.getTimeStamps(), rungeKutta4Trajectory.getSingleStateValues(0));
+  plt::plot(groundTruthTrajectory.getTimeStamps(), groundTruthTrajectory.getSingleStateValues(0), {{"label", "Ground Truth"}});
+  plt::plot(eulerForwardTrajectory.getTimeStamps(), eulerForwardTrajectory.getSingleStateValues(0), {{"label", "Euler Forward"}});
+  plt::plot(eulerBackwardTrajectory.getTimeStamps(), eulerBackwardTrajectory.getSingleStateValues(0), {{"label", "Euler Backward"}});
+  plt::plot(rungeKutta2Trajectory.getTimeStamps(), rungeKutta2Trajectory.getSingleStateValues(0), {{"label", "2nd Order Runge Kutta"}});
+  plt::plot(rungeKutta4Trajectory.getTimeStamps(), rungeKutta4Trajectory.getSingleStateValues(0), {{"label", "4th Order Runge Kutta"}});
+
+  plt::title("Simulated Mass-Spring-Damper System");
+  plt::xlabel("Time [s]");
+  plt::ylabel("Position [m]");
+  plt::legend();
+
   plt::show();
 
   return 0;
