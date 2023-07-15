@@ -12,7 +12,7 @@ The following methods are currently included:
 
 - **Eigen 3.3**. On a debian based linux system (e.g. Ubuntu, Mint) install using ```sudo apt install libeigen3-dev```
 
-#### Optional Dependencies for Examples
+### Optional Dependencies for Examples
 
 - **Matplotlibcpp**. Submodule for visualization of the examples. Initialize using: ```make update-submodules```.
 
