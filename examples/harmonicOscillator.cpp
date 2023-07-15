@@ -43,9 +43,9 @@ using namespace lynx_ode;
 
 // Create the system flow map of the mass spring damper system
 
-class MassSpringDamperSystem : public SystemFlowMapBase {
+class HarmonicOscillator : public SystemFlowMapBase {
  public:
-  MassSpringDamperSystem(scalar_t natuaralFrequency, scalar_t dampingRatio) {
+  HarmonicOscillator(scalar_t natuaralFrequency, scalar_t dampingRatio) {
     A << 0.0, 1.0, -natuaralFrequency * natuaralFrequency, -2 * natuaralFrequency * dampingRatio;
   };
 
@@ -56,7 +56,7 @@ class MassSpringDamperSystem : public SystemFlowMapBase {
 };
 
 int main() {
-  MassSpringDamperSystem system = MassSpringDamperSystem(2.0, 0.1);
+  HarmonicOscillator system = HarmonicOscillator(2.0, 0.1);
 
   // Create the different types of integrators
   EulerForwardIntegrator eulerForwardIntegrator = EulerForwardIntegrator();

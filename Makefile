@@ -26,5 +26,5 @@ build-debug:
 	make
 
 run-example:
-	cd ${build_dir} && ./massSpringDamperSystem
+	cd ${build_dir} && ./harmonicOscillator
 
