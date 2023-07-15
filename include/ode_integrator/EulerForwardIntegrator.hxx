@@ -43,7 +43,7 @@ vector_t EulerForwardIntegrator::eulerForwardStep(const SystemDynamicsBase* syst
 
 vector_t EulerForwardIntegrator::getStepDirection(const SystemDynamicsBase* systemDynamicsPtr, const vector_t& derivativeEvaluationState,
                                                   scalar_t step_length) const {
-  return step_length * systemDynamicsPtr->computeFlowMap(derivativeEvaluationState) * derivativeEvaluationState;
+  return step_length * systemDynamicsPtr->computeFlowMap(derivativeEvaluationState);
 }
 
 }  // namespace lynx_ode

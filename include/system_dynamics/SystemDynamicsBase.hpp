@@ -35,7 +35,11 @@ namespace lynx_ode {
 
 class SystemDynamicsBase {
  public:
-  virtual matrix_t computeFlowMap(const vector_t& state) const = 0;
+  virtual vector_t computeFlowMap(const vector_t& state) const = 0;
+
+  virtual matrix_t getLinearApproximation(const vector_t& state) const {
+    throw std::runtime_error("[SystemDynamicsBase] getLinearApproximation was called but not implemented.");
+  };
 };
 
 }  // namespace lynx_ode

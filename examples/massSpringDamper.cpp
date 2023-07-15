@@ -37,24 +37,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ode_integrator/EulerForwardIntegrator.hpp"
 #include "ode_integrator/FourthOrderRungeKutta.hpp"
 #include "ode_integrator/SecondOrderRungeKutta.hpp"
+#include "system_dynamics/LinearSystemDynamics.hpp"
 
 namespace plt = matplotlibcpp;
 
 using namespace lynx_ode;
-
-// Create the system flow map for a harmonic oscillator
-
-class DampedHarmonicOscillator : public SystemDynamicsBase {
- public:
-  DampedHarmonicOscillator(scalar_t natuaralFrequency, scalar_t dampingRatio) {
-    A_ << 0.0, 1.0, -natuaralFrequency * natuaralFrequency, -2 * natuaralFrequency * dampingRatio;
-  };
-
-  matrix_t computeFlowMap(const vector_t& state) const override { return A_; };
-
- private:
-  Eigen::Matrix<scalar_t, 2, 2> A_;
-};
 
 // In this example a mass-spring-damper system (https://en.wikipedia.org/wiki/Mass-spring-damper_model) is simulated.
 
@@ -67,8 +54,11 @@ int main() {
   scalar_t naturalFrequency = std::sqrt(k_spring / mass);
   scalar_t dampingRatio = c_damper / (2 * mass * naturalFrequency);
 
+  matrix_t systemMatrix(2, 2);
+  systemMatrix << 0.0, 1.0, -naturalFrequency * naturalFrequency, -2 * naturalFrequency * dampingRatio;
+
   // Create mass-spring-damper system as harmonic oscillator
-  DampedHarmonicOscillator system = DampedHarmonicOscillator(naturalFrequency, dampingRatio);
+  LinearSystemDynamics system = LinearSystemDynamics(systemMatrix);
 
   // Create the different types of integrators
   EulerForwardIntegrator eulerForwardIntegrator = EulerForwardIntegrator();

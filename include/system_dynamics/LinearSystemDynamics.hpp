@@ -4,10 +4,10 @@ namespace lynx_ode {
 
 class LinearSystemDynamics : public SystemDynamicsBase {
  public:
-  virtual LinearSystemDynamics() = 0;
+  LinearSystemDynamics(matrix_t A) : A_(A){};
   vector_t computeFlowMap(const vector_t& state) const override { return getLinearApproximation(state) * state; };
 
-  matrix_t getLinearApproximation(const vector_t& state) const {return A_};
+  matrix_t getLinearApproximation(const vector_t& state) const { return A_; };
 
  private:
   matrix_t A_;
