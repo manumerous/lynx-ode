@@ -10,11 +10,11 @@ The following methods are currently included:
 
 ## Dependencies
 
-- Eigen 3.3. On a debian based linux system (e.g. Ubuntu, Mint) install using ```sudo apt install libeigen3-dev```
+- **Eigen 3.3**. On a debian based linux system (e.g. Ubuntu, Mint) install using ```sudo apt install libeigen3-dev```
 
 #### Optional Dependencies for Examples
 
-- Matplotlibcpp submodule for visualization of the examples. Initialize using: ```make update-submodules```.
+- **Matplotlibcpp**. Submodule for visualization of the examples. Initialize using: ```make update-submodules```.
 
 Alternatively you can build without the examples by setting `set(BUILD_EXAMPLES OFF)` in CMakeLists.txt. 
 
