@@ -47,13 +47,13 @@ using namespace lynx_ode;
 class DampedHarmonicOscillator : public SystemFlowMapBase {
  public:
   DampedHarmonicOscillator(scalar_t natuaralFrequency, scalar_t dampingRatio) {
-    A << 0.0, 1.0, -natuaralFrequency * natuaralFrequency, -2 * natuaralFrequency * dampingRatio;
+    A_ << 0.0, 1.0, -natuaralFrequency * natuaralFrequency, -2 * natuaralFrequency * dampingRatio;
   };
 
-  matrix_t getLinearApproximation(const vector_t& state) const override { return A; };
+  matrix_t getLinearApproximation(const vector_t& state) const override { return A_; };
 
  private:
-  Eigen::Matrix<scalar_t, 2, 2> A;
+  Eigen::Matrix<scalar_t, 2, 2> A_;
 };
 
 // In this example a mass-spring-damper system (https://en.wikipedia.org/wiki/Mass-spring-damper_model) is simulated.
