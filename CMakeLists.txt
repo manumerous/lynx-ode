@@ -22,9 +22,9 @@ include_directories(${EIGEN_INCLUDE_DIR})
 
 if(BUILD_EXAMPLES)
 
-  add_executable(harmonicOscillator ./examples/harmonicOscillator.cpp) 
+  add_executable(massSpringDamper ./examples/massSpringDamper.cpp) 
 
-  target_link_libraries(harmonicOscillator 
+  target_link_libraries(massSpringDamper 
       matplotlib_cpp
       Eigen3::Eigen
       )
