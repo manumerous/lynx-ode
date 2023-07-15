@@ -16,14 +16,6 @@ add_subdirectory(./libs/matplotlib-cpp)
 
 include_directories(${EIGEN_INCLUDE_DIR})
 
-add_library(${PROJECT_NAME}
-  src/ode_integrator/ODEIntegratorBase.cpp
-  src/ode_integrator/EulerForwardIntegrator.cpp
-  src/ode_integrator/EulerBackwardIntegrator.cpp
-  src/ode_integrator/SecondOrderRungeKutta.cpp
-  src/ode_integrator/FourthOrderRungeKutta.cpp
-)
-
 ##############
 ## Examples ##
 ##############
@@ -33,7 +25,6 @@ if(BUILD_EXAMPLES)
   add_executable(massSpringDamperSystem ./examples/massSpringDamperSystem.cpp) 
 
   target_link_libraries(massSpringDamperSystem 
-      ${PROJECT_NAME}
       matplotlib_cpp
       Eigen3::Eigen
       )

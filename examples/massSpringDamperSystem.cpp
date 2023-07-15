@@ -29,12 +29,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <iostream>
 
-#include "common/Types.h"
 #include "matplotlibcpp.h"
-#include "ode_integrator/EulerBackwardIntegrator.h"
-#include "ode_integrator/EulerForwardIntegrator.h"
-#include "ode_integrator/FourthOrderRungeKutta.h"
-#include "ode_integrator/SecondOrderRungeKutta.h"
+
+#include "common/Types.hpp"
+#include "ode_integrator/EulerBackwardIntegrator.hpp"
+#include "ode_integrator/EulerForwardIntegrator.hpp"
+#include "ode_integrator/FourthOrderRungeKutta.hpp"
+#include "ode_integrator/SecondOrderRungeKutta.hpp"
 
 namespace plt = matplotlibcpp;
 
