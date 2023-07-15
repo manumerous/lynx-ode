@@ -72,18 +72,32 @@ int main() {
   // Create the different types of integrators
   FourthOrderRungeKutta fourthOrderRungeKutta = FourthOrderRungeKutta();
   vector_t initialState(3);
-  initialState << 1.0, 3.0, 5.0;
+  initialState << -5, 0, 20.0;
 
-  size_t n_steps = 1000;
-  scalar_t integrationHorizon = 10;
+  size_t n_steps = 50;
+  scalar_t integrationHorizon = 0.5;
 
   // Create a highly accurate trajectory using a 4th order runge kutta integrator with 10 times more samples
   Trajectory trajectory = fourthOrderRungeKutta.integrate(&system, initialState, n_steps, integrationHorizon);
 
-  // Plot all trajectories using matplotlibcpp
-  plt::plot(trajectory.getSingleStateValues(0), trajectory.getSingleStateValues(1));
+  plt::plot(trajectory.getTimeStamps(), trajectory.getSingleStateValues(0), {{"label", "x"}});
+  plt::plot(trajectory.getTimeStamps(), trajectory.getSingleStateValues(1), {{"label", "y"}});
+  plt::plot(trajectory.getTimeStamps(), trajectory.getSingleStateValues(2), {{"label", "z"}});
 
-  plt::title("Lorenz Attractor");
+  plt::title("Simulated Lorenz Attractor System");
+  plt::xlabel("Time [s]");
+  plt::ylabel("Position [m]");
+  plt::legend();
 
+  plt::show();
+
+  std::map<std::string, std::string> keywords;
+  keywords.insert(std::pair<std::string, std::string>("label", "system trajectory"));
+
+  plt::plot3(trajectory.getSingleStateValues(0), trajectory.getSingleStateValues(1), trajectory.getSingleStateValues(2), keywords);
+  plt::xlabel("x");
+  plt::ylabel("y");
+  plt::set_zlabel("z");  // set_zlabel rather than just zlabel, in accordance with the Axes3D method
+  plt::legend();
   plt::show();
 }
