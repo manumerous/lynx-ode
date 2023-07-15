@@ -27,6 +27,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ******************************************************************************/
 
+#include <cmath>
 #include <iostream>
 
 #include "matplotlibcpp.h"
@@ -41,7 +42,7 @@ namespace plt = matplotlibcpp;
 
 using namespace lynx_ode;
 
-// Create the system flow map of the mass spring damper system
+// Create the system flow map for a harmonic oscillator
 
 class HarmonicOscillator : public SystemFlowMapBase {
  public:
@@ -56,7 +57,16 @@ class HarmonicOscillator : public SystemFlowMapBase {
 };
 
 int main() {
-  HarmonicOscillator system = HarmonicOscillator(2.0, 0.1);
+  // Define mass-spring-damper system properties
+  scalar_t mass = 1;        // Kg
+  scalar_t k_spring = 4;    // N/m
+  scalar_t c_damper = 0.5;  // N * s / m
+
+  scalar_t naturalFrequency = std::sqrt(k_spring / mass);
+  scalar_t dampingRatio = c_damper / (2 * mass * naturalFrequency);
+
+  // Create mass-spring-damper system as harmonic oscillator
+  HarmonicOscillator system = HarmonicOscillator(naturalFrequency, dampingRatio);
 
   // Create the different types of integrators
   EulerForwardIntegrator eulerForwardIntegrator = EulerForwardIntegrator();
