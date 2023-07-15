@@ -28,6 +28,13 @@ if(BUILD_EXAMPLES)
       matplotlib_cpp
       Eigen3::Eigen
       )
+
+  add_executable(lorenzSystem ./examples/lorenzSystem.cpp) 
+
+  target_link_libraries(lorenzSystem 
+      matplotlib_cpp
+      Eigen3::Eigen
+      )
       
 endif(BUILD_EXAMPLES)
 
