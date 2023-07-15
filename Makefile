@@ -25,6 +25,9 @@ build-debug:
 	cmake .. -DCMAKE_BUILD_TYPE=Debug && \
 	make
 
-run-example:
+run-mass-spring-damper-example:
 	cd ${build_dir} && ./massSpringDamper
+
+run-lorenz-example:
+	cd ${build_dir} && ./lorenzSystem
 
