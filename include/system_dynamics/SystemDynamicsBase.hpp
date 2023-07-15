@@ -33,9 +33,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace lynx_ode {
 
-class SystemFlowMapBase {
+class SystemDynamicsBase {
  public:
-  virtual matrix_t getLinearApproximation(const vector_t& state) const = 0;
+  virtual matrix_t computeFlowMap(const vector_t& state) const = 0;
 };
 
 }  // namespace lynx_ode

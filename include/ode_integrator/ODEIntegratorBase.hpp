@@ -31,18 +31,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <vector>
 #include "common/Trajectory.hpp"
-#include "system_dynamics/SystemFlowMapBase.hpp"
+#include "system_dynamics/SystemDynamicsBase.hpp"
 
 namespace lynx_ode {
 
 class ODEIntegratorBase {
  public:
   // Implementation for default inegrator with fixed time step delta_t = integrationHorizonTime / n_steps
-  virtual Trajectory integrate(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, size_t n_steps,
+  virtual Trajectory integrate(const SystemDynamicsBase* systemDynamicsPtr, const vector_t& initialState, size_t n_steps,
                                scalar_t integrationHorizonTime);
 
  private:
-  virtual vector_t integrationStep(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, scalar_t delta_t) = 0;
+  virtual vector_t integrationStep(const SystemDynamicsBase* systemDynamicsPtr, const vector_t& initialState, scalar_t delta_t) = 0;
 };
 
 }  // namespace lynx_ode

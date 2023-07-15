@@ -38,7 +38,7 @@ class FourthOrderRungeKutta : public EulerForwardIntegrator {
   FourthOrderRungeKutta() : EulerForwardIntegrator(){};
 
  private:
-  vector_t integrationStep(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, scalar_t delta_t) override;
+  vector_t integrationStep(const SystemDynamicsBase* systemDynamicsPtr, const vector_t& initialState, scalar_t delta_t) override;
 };
 
 }  // namespace lynx_ode

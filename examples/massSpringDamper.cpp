@@ -44,13 +44,13 @@ using namespace lynx_ode;
 
 // Create the system flow map for a harmonic oscillator
 
-class DampedHarmonicOscillator : public SystemFlowMapBase {
+class DampedHarmonicOscillator : public SystemDynamicsBase {
  public:
   DampedHarmonicOscillator(scalar_t natuaralFrequency, scalar_t dampingRatio) {
     A_ << 0.0, 1.0, -natuaralFrequency * natuaralFrequency, -2 * natuaralFrequency * dampingRatio;
   };
 
-  matrix_t getLinearApproximation(const vector_t& state) const override { return A_; };
+  matrix_t computeFlowMap(const vector_t& state) const override { return A_; };
 
  private:
   Eigen::Matrix<scalar_t, 2, 2> A_;

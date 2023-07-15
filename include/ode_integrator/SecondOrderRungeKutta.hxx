@@ -29,12 +29,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace lynx_ode {
 
-vector_t SecondOrderRungeKutta::integrationStep(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, scalar_t delta_t)
+vector_t SecondOrderRungeKutta::integrationStep(const SystemDynamicsBase* systemDynamicsPtr, const vector_t& initialState, scalar_t delta_t)
 
 {
-  vector_t halfStepValue = eulerForwardStep(flowMapPtr, initialState, initialState, delta_t, 0.5);
+  vector_t halfStepValue = eulerForwardStep(systemDynamicsPtr, initialState, initialState, delta_t, 0.5);
 
-  vector_t nextValue = eulerForwardStep(flowMapPtr, initialState, halfStepValue, delta_t);
+  vector_t nextValue = eulerForwardStep(systemDynamicsPtr, initialState, halfStepValue, delta_t);
 
   return nextValue;
 }

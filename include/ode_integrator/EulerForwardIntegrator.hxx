@@ -29,20 +29,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace lynx_ode {
 
-vector_t EulerForwardIntegrator::integrationStep(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState, scalar_t delta_t)
+vector_t EulerForwardIntegrator::integrationStep(const SystemDynamicsBase* systemDynamicsPtr, const vector_t& initialState,
+                                                 scalar_t delta_t)
 
 {
-  return eulerForwardStep(flowMapPtr, initialState, initialState, delta_t);
+  return eulerForwardStep(systemDynamicsPtr, initialState, initialState, delta_t);
 }
 
-vector_t EulerForwardIntegrator::eulerForwardStep(const SystemFlowMapBase* flowMapPtr, const vector_t& initialState,
+vector_t EulerForwardIntegrator::eulerForwardStep(const SystemDynamicsBase* systemDynamicsPtr, const vector_t& initialState,
                                                   const vector_t& derivativeEvaluationState, scalar_t delta_t, scalar_t step_length) const {
-  return initialState + getStepDirection(flowMapPtr, derivativeEvaluationState, step_length) * delta_t;
+  return initialState + getStepDirection(systemDynamicsPtr, derivativeEvaluationState, step_length) * delta_t;
 }
 
-vector_t EulerForwardIntegrator::getStepDirection(const SystemFlowMapBase* flowMapPtr, const vector_t& derivativeEvaluationState,
+vector_t EulerForwardIntegrator::getStepDirection(const SystemDynamicsBase* systemDynamicsPtr, const vector_t& derivativeEvaluationState,
                                                   scalar_t step_length) const {
-  return step_length * flowMapPtr->getLinearApproximation(derivativeEvaluationState) * derivativeEvaluationState;
+  return step_length * systemDynamicsPtr->computeFlowMap(derivativeEvaluationState) * derivativeEvaluationState;
 }
 
 }  // namespace lynx_ode
