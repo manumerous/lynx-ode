@@ -1,0 +1,23 @@
+name: Build Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Eigen 
+        run: apt install libeigen3-dev
+      - name: submodule update
+        run: make update-submodules
+      - name: Install yaml-cpp
+        run: make build-release
