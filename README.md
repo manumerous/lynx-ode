@@ -14,7 +14,7 @@ The following methods are currently included:
 
 ### Optional Dependencies for Examples
 
-- **Matplotlibcpp**. Submodule for visualization of the examples. Initialize using: ```make update-submodules```.
+- **Matplotlibcpp**. Submodule required for visualizating the results of the examples. Initialize using: ```make update-submodules```.
 
 Alternatively you can build without the examples by setting `set(BUILD_EXAMPLES OFF)` in CMakeLists.txt. 
 
