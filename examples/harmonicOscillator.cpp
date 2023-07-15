@@ -56,6 +56,8 @@ class HarmonicOscillator : public SystemFlowMapBase {
   matrix2_t A;
 };
 
+// In this example a harmonic oscillator (at the example of a mass-spring-damper system) is simulated.
+
 int main() {
   // Define mass-spring-damper system properties
   scalar_t mass = 1;        // Kg
