@@ -1,6 +1,6 @@
 ![lynx_ode_logo](https://github.com/manumerous/lynx-ode/assets/18735094/00059cde-f683-409a-bb5d-1974706efd64)
 
-A versatile and light weight headers only c++ library containing Ordinary Differentail Equations (ODE) solvers that can be used to simulate dynamical systems. 
+A versatile and light weight like a lynx! This headers only c++ library containing Ordinary Differentail Equations (ODE) solvers that can be used to simulate dynamical systems. 
 
 The following methods are currently included: 
 - Explicit Euler (also known as Forward Euler)
