@@ -18,14 +18,28 @@ The following methods are currently included:
 
 Alternatively you can build without the examples by setting `set(BUILD_EXAMPLES OFF)` in CMakeLists.txt. 
 
-## Examples
-As an example of how to use the library a simple mass-spring-damper system simulation is included. 
+## Build 
 Build the examples by running 
 
 ```make build-release```
 
 
-Then run it by using 
+## Examples
+As an example of how to use the library multiple examples are included. 
+
+### Lorenz System
+The [Lorenz System](https://en.wikipedia.org/wiki/Lorenz_system) is particular system of ordinary differential which has a chaotic solution for certain parameters of the system as seen below.
+
+Run the lorenz system example by using 
+
+```make run-lorenz-example ```. 
+
+
+### Mass Spring Damper System
+As an example of how to use the library a mass-spring-damper system simulation is included. 
+
+
+Run the mass-spring-damper system example by using 
 
 ```make run-mass-spring-damper-example```. 
 
