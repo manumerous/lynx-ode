@@ -33,10 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "matplotlibcpp.h"
 
 #include "common/Types.hpp"
-#include "ode_integrator/EulerBackwardIntegrator.hpp"
-#include "ode_integrator/EulerForwardIntegrator.hpp"
 #include "ode_integrator/FourthOrderRungeKutta.hpp"
-#include "ode_integrator/SecondOrderRungeKutta.hpp"
 
 namespace plt = matplotlibcpp;
 
@@ -72,17 +69,21 @@ int main() {
   // Create the different types of integrators
   FourthOrderRungeKutta fourthOrderRungeKutta = FourthOrderRungeKutta();
   vector_t initialState(3);
-  initialState << -5, 0, 20.0;
+  initialState << -5.0, 0.0, 20.0;
 
-  size_t n_steps = 50;
-  scalar_t integrationHorizon = 0.5;
+  scalar_t integrationHorizon = 20;
+  size_t n_steps = integrationHorizon * 100;
 
   // Create a highly accurate trajectory using a 4th order runge kutta integrator with 10 times more samples
   Trajectory trajectory = fourthOrderRungeKutta.integrate(&system, initialState, n_steps, integrationHorizon);
 
-  plt::plot(trajectory.getTimeStamps(), trajectory.getSingleStateValues(0), {{"label", "x"}});
-  plt::plot(trajectory.getTimeStamps(), trajectory.getSingleStateValues(1), {{"label", "y"}});
-  plt::plot(trajectory.getTimeStamps(), trajectory.getSingleStateValues(2), {{"label", "z"}});
+  std::vector<double> x = trajectory.getSingleStateValues(0);
+  std::vector<double> y = trajectory.getSingleStateValues(1);
+  std::vector<double> z = trajectory.getSingleStateValues(2);
+
+  plt::plot(trajectory.getTimeStamps(), x, {{"label", "x"}});
+  plt::plot(trajectory.getTimeStamps(), y, {{"label", "y"}});
+  plt::plot(trajectory.getTimeStamps(), z, {{"label", "z"}});
 
   plt::title("Simulated Lorenz Attractor System");
   plt::xlabel("Time [s]");
@@ -94,10 +95,10 @@ int main() {
   std::map<std::string, std::string> keywords;
   keywords.insert(std::pair<std::string, std::string>("label", "system trajectory"));
 
-  plt::plot3(trajectory.getSingleStateValues(0), trajectory.getSingleStateValues(1), trajectory.getSingleStateValues(2), keywords);
-  plt::xlabel("x");
-  plt::ylabel("y");
-  plt::set_zlabel("z");  // set_zlabel rather than just zlabel, in accordance with the Axes3D method
+  plt::plot3(x, y, z, keywords);
+  plt::xlabel("x label");
+  plt::ylabel("y label");
+  plt::set_zlabel("z label");  // set_zlabel rather than just zlabel, in accordance with the Axes3D method
   plt::legend();
   plt::show();
 }
