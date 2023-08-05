@@ -34,7 +34,7 @@ Run the lorenz system example by using
 
 ```make run-lorenz-example ```. 
 
-![LorenzSystem3D](https://github.com/manumerous/lynx-ode/assets/18735094/882d2cd3-3358-4541-9841-1725034926b8)
+![lorenz_system_animation_loop](https://github.com/manumerous/lynx-ode/assets/18735094/07aa6c4d-37a0-46b8-939f-442102f16981)
 
 
 ### Mass Spring Damper System
