@@ -96,9 +96,9 @@ int main() {
   keywords.insert(std::pair<std::string, std::string>("label", "system trajectory"));
 
   plt::plot3(x, y, z, keywords);
-  plt::xlabel("x label");
-  plt::ylabel("y label");
-  plt::set_zlabel("z label");  // set_zlabel rather than just zlabel, in accordance with the Axes3D method
+  plt::xlabel("x");
+  plt::ylabel("y");
+  plt::set_zlabel("z");  // set_zlabel rather than just zlabel, in accordance with the Axes3D method
   plt::legend();
   plt::show();
 }
