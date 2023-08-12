@@ -28,7 +28,7 @@ Build the examples by running
 As an example of how to use the library multiple examples are included. 
 
 ### Lorenz System
-The [Lorenz System](https://en.wikipedia.org/wiki/Lorenz_system) is particular system of ordinary differential which has a chaotic solution for certain parameters of the system as seen below.
+The [Lorenz System](https://en.wikipedia.org/wiki/Lorenz_system) is particular system of ordinary differential which has a chaotic solution for certain parameters of the system. In particular, the system dynamics for a set of parameters, where the lorenz system has two distinct attractors, is shown below. 
 
 Run the lorenz system example by using 
 
