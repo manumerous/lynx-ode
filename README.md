@@ -8,6 +8,8 @@ The following methods are currently included:
 - 2nd Order Runge-Kutta
 - 4th Order Runge-Kutta
 
+A detailed description of the project and the included solvers can be found on [my website](https://galliker.tech/projects/lynx_ode/).
+
 ## Dependencies
 
 - **Eigen 3.3**. On a debian based linux system (e.g. Ubuntu, Mint) install using ```sudo apt install libeigen3-dev```
